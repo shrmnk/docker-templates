@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>gsdock</Name>
+  <Repository>shrmn/gsdock</Repository>
+  <Registry>https://hub.docker.com/r/shrmn/gsdock/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview>GoodSync Connect Server&#xD;
+&#xD;
+Runs the GoodSync Connect Linux server to store your backups. Valid GoodSync Connect account required.&#xD;
+&#xD;
+The WebUI credentials are the same as your GoodSync Connect account credentials that you set as GS_USER and GS_PWD</Overview>
+  <Category>Backup: Status:Beta</Category>
+  <WebUI>http://[IP]:[PORT:11000]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://lh5.ggpht.com/wKQx6--IZ50yitxPX24gbsO2rrehdaGNw9J4rHceHlwNPFrNY7CfCO3UDQub7GrsQr4=w300</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <DateInstalled>1538765446</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>GoodSync Connect Server&#xD;
+&#xD;
+Runs the GoodSync Connect Linux server to store your backups. Valid GoodSync Connect account required.&#xD;
+&#xD;
+The WebUI credentials are the same as your GoodSync Connect account credentials that you set as GS_USER and GS_PWD</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>33333</HostPort>
+        <ContainerPort>33333</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>33338</HostPort>
+        <ContainerPort>33338</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>33339</HostPort>
+        <ContainerPort>33339</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>11000</HostPort>
+        <ContainerPort>11000</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/backups/gsdock/</HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user</HostDir>
+      <ContainerDir>/root/.goodsync/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value></Value>
+      <Name>GS_USER</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value></Value>
+      <Name>GS_PWD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>unraid</Value>
+      <Name>GS_ID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="GS_USER" Target="GS_USER" Default="" Mode="" Description="GoodSync Connect Username" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="GS_PWD" Target="GS_PWD" Default="" Mode="" Description="GoodSync Connect Password" Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="GS_ID" Target="GS_ID" Default="unraid" Mode="" Description="(optional) GS Server Name" Type="Variable" Display="always" Required="false" Mask="false">unraid</Config>
+  <Config Name="GoodSync Connect Container Path" Target="/data" Default="" Mode="rw" Description="Should place this outside of appdata, in a dedicated backups share" Type="Path" Display="always" Required="true" Mask="false">/mnt/user</Config>
+  <Config Name="GS Server Configuration Folder" Target="/root/.goodsync/" Default="/mnt/user/appdata/gsdock" Mode="rw" Description="Holds server folder with settings.tix config file" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="GSTP Port" Target="33333" Default="33333" Mode="tcp" Description="For Goodsync Connect protocol" Type="Port" Display="advanced" Required="true" Mask="false">33333</Config>
+  <Config Name="GoodSync Broadcast 1" Target="33338" Default="33338" Mode="udp" Description="GoodSync Broadcast 1" Type="Port" Display="advanced" Required="true" Mask="false">33338</Config>
+  <Config Name="GoodSync Broadcast 2" Target="33339" Default="33339" Mode="udp" Description="GoodSync Broadcast 2" Type="Port" Display="advanced" Required="true" Mask="false">33339</Config>
+  <Config Name="WebUI Port" Target="11000" Default="11000" Mode="tcp" Description="Container Port: 11000" Type="Port" Display="advanced" Required="true" Mask="false">11000</Config>
+</Container>
