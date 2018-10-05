@@ -6,7 +6,7 @@
   <Network>bridge</Network>
   <MyIP/>
   <Privileged>false</Privileged>
-  <Support/>
+  <Support>https://github.com/shrmnk/gsdock/issues</Support>
   <Project/>
   <Overview>GoodSync Connect Server&#xD;
 &#xD;
