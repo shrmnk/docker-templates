@@ -54,13 +54,13 @@ The WebUI credentials are the same as your GoodSync Connect account credentials 
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/backups/gsdock/</HostDir>
+      <HostDir>/mnt/user</HostDir>
       <ContainerDir>/data</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/user</HostDir>
-      <ContainerDir>/root/.goodsync/</ContainerDir>
+      <HostDir>/mnt/user/appdata/gsdock</HostDir>
+      <ContainerDir>/root/.goodsync</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
@@ -80,15 +80,27 @@ The WebUI credentials are the same as your GoodSync Connect account credentials 
       <Name>GS_ID</Name>
       <Mode/>
     </Variable>
+    <Variable>
+      <Value>99</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
   </Environment>
   <Labels/>
   <Config Name="GS_USER" Target="GS_USER" Default="" Mode="" Description="GoodSync Connect Username" Type="Variable" Display="always" Required="true" Mask="false"></Config>
   <Config Name="GS_PWD" Target="GS_PWD" Default="" Mode="" Description="GoodSync Connect Password" Type="Variable" Display="always" Required="true" Mask="true"></Config>
-  <Config Name="GS_ID" Target="GS_ID" Default="unraid" Mode="" Description="(optional) GS Server Name" Type="Variable" Display="always" Required="false" Mask="false">unraid</Config>
-  <Config Name="GoodSync Connect Container Path" Target="/data" Default="" Mode="rw" Description="Should place this outside of appdata, in a dedicated backups share" Type="Path" Display="always" Required="true" Mask="false">/mnt/user</Config>
-  <Config Name="GS Server Configuration Folder" Target="/root/.goodsync/" Default="/mnt/user/appdata/gsdock" Mode="rw" Description="Holds server folder with settings.tix config file" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="GS_ID" Target="GS_ID" Default="unraid" Mode="" Description="(optional) GS Server Name. GS Server will automatically generate if blank." Type="Variable" Display="always" Required="false" Mask="false">unraid</Config>
+  <Config Name="GoodSync Connect Backups Data Path" Target="/data" Default="/mnt/user" Mode="rw" Description="Should place this outside of appdata, in a dedicated backups share" Type="Path" Display="always" Required="true" Mask="false">/mnt/user</Config>
+  <Config Name="GS Server Configuration Folder" Target="/root/.goodsync/" Default="/mnt/user/appdata/gsdock" Mode="rw" Description="Holds server folder with settings.tix config file" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/gsdock</Config>
   <Config Name="GSTP Port" Target="33333" Default="33333" Mode="tcp" Description="For Goodsync Connect protocol" Type="Port" Display="advanced" Required="true" Mask="false">33333</Config>
   <Config Name="GoodSync Broadcast 1" Target="33338" Default="33338" Mode="udp" Description="GoodSync Broadcast 1" Type="Port" Display="advanced" Required="true" Mask="false">33338</Config>
   <Config Name="GoodSync Broadcast 2" Target="33339" Default="33339" Mode="udp" Description="GoodSync Broadcast 2" Type="Port" Display="advanced" Required="true" Mask="false">33339</Config>
-  <Config Name="WebUI Port" Target="11000" Default="11000" Mode="tcp" Description="Container Port: 11000" Type="Port" Display="advanced" Required="true" Mask="false">11000</Config>
+  <Config Name="WebUI Port" Target="11000" Default="11000" Mode="tcp" Description="WebUI Configuration can be accessed through this port. Credentials are same as GS Connect credentials." Type="Port" Display="advanced" Required="true" Mask="false">11000</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="UID for permissions. Do not change unless you know what you're doing." Type="Variable" Display="advanced-hide" Required="true" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="GID for permissions. Do not change unless you know what you're doing." Type="Variable" Display="advanced-hide" Required="true" Mask="false">100</Config>
 </Container>
