@@ -28,7 +28,7 @@ Runs the GoodSync Connect Linux server to store your backups. Valid GoodSync Con
 &#xD;
 The WebUI credentials are the same as your GoodSync Connect account credentials that you set as GS_USER and GS_PWD</Description>
   <Networking>
-    <Mode>bridge</Mode>
+    <Mode>host</Mode>
     <Publish>
       <Port>
         <HostPort>33333</HostPort>
