@@ -60,7 +60,7 @@ The WebUI credentials are the same as your GoodSync Connect account credentials 
     </Volume>
     <Volume>
       <HostDir>/mnt/user/appdata/gsdock</HostDir>
-      <ContainerDir>/root/.goodsync</ContainerDir>
+      <ContainerDir>/config</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
@@ -94,9 +94,9 @@ The WebUI credentials are the same as your GoodSync Connect account credentials 
   <Labels/>
   <Config Name="GS_USER" Target="GS_USER" Default="" Mode="" Description="GoodSync Connect Username" Type="Variable" Display="always" Required="true" Mask="false"></Config>
   <Config Name="GS_PWD" Target="GS_PWD" Default="" Mode="" Description="GoodSync Connect Password" Type="Variable" Display="always" Required="true" Mask="true"></Config>
-  <Config Name="GS_ID" Target="GS_ID" Default="unraid" Mode="" Description="(optional) GS Server Name. GS Server will automatically generate if blank." Type="Variable" Display="always" Required="false" Mask="false">unraid</Config>
-  <Config Name="GoodSync Connect Backups Data Path" Target="/data" Default="/mnt/user" Mode="rw" Description="Should place this outside of appdata, in a dedicated backups share" Type="Path" Display="always" Required="true" Mask="false">/mnt/user</Config>
-  <Config Name="GS Server Configuration Folder" Target="/root/.goodsync/" Default="/mnt/user/appdata/gsdock" Mode="rw" Description="Holds server folder with settings.tix config file" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/gsdock</Config>
+  <Config Name="GS_ID" Target="GS_ID" Default="unraid" Mode="" Description="(optional) GS Server Name. Will be container ID if blank." Type="Variable" Display="always" Required="false" Mask="false">unraid</Config>
+  <Config Name="GoodSync Connect Backups Data Path" Target="/data" Default="/mnt/user" Mode="rw" Description="Holds backup data. Should place this outside of appdata, in a dedicated backups share" Type="Path" Display="always" Required="true" Mask="false">/mnt/user</Config>
+  <Config Name="GS Server Configuration Folder" Target="/config" Default="/mnt/user/appdata/gsdock" Mode="rw" Description="Holds settings.tix and users.tix config files" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/gsdock</Config>
   <Config Name="GSTP Port" Target="33333" Default="33333" Mode="tcp" Description="For Goodsync Connect protocol" Type="Port" Display="advanced" Required="true" Mask="false">33333</Config>
   <Config Name="GoodSync Broadcast 1" Target="33338" Default="33338" Mode="udp" Description="GoodSync Broadcast 1" Type="Port" Display="advanced" Required="true" Mask="false">33338</Config>
   <Config Name="GoodSync Broadcast 2" Target="33339" Default="33339" Mode="udp" Description="GoodSync Broadcast 2" Type="Port" Display="advanced" Required="true" Mask="false">33339</Config>
