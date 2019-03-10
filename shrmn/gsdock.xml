@@ -3,7 +3,7 @@
   <Name>gsdock</Name>
   <Repository>shrmn/gsdock</Repository>
   <Registry>https://hub.docker.com/r/shrmn/gsdock/</Registry>
-  <Network>bridge</Network>
+  <Network>host</Network>
   <MyIP/>
   <Privileged>false</Privileged>
   <Support>https://github.com/shrmnk/gsdock/issues</Support>
