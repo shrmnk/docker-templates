@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>RIPEAtlasProbe</Name>
+  <Repository>jamesits/ripe-atlas:latest</Repository>
+  <Registry>https://registry.hub.docker.com/r/jamesits/ripe-atlas</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/shrmnk/docker-templates/issues</Support>
+  <Project/>
+  <Overview>This is the RIPE Atlas software probe packaged as a Docker image.</Overview>
+  <Category/>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://www.netdata.cloud/img/ripe.png</Icon>
+  <ExtraParams>--cap-drop=ALL --cap-add=CHOWN --cap-add=SETUID --cap-add=SETGID --cap-add=DAC_OVERRIDE --cap-add=NET_RAW</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="etc" Target="/var/atlas-probe/etc" Default="/mnt/user/appdata/atlas-probe/etc" Mode="rw" Description="Stores config.txt and probe_key.pub, where you will need to extract the public key and paste into the RIPE Atlas probe setup" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/atlas-probe/etc</Config>
+  <Config Name="RXTXRPT" Target="RXTXRPT" Default="yes" Mode="" Description="Enables sending interface traffic statistics as Atlas measurement results" Type="Variable" Display="advanced" Required="false" Mask="false">yes</Config>
+  <Config Name="status" Target="/var/atlas-probe/status" Default="/mnt/user/appdata/atlas-probe/status" Mode="rw" Description="" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/atlas-probe/status</Config>
+  <Config Name="Enable Traefik" Target="traefik.enable" Default="false" Mode="" Description="" Type="Label" Display="advanced" Required="true" Mask="false">false</Config>
+  <Config Name="Watchtower" Target="com.centurylinklabs.watchtower.enable" Default="true" Mode="" Description="" Type="Label" Display="advanced" Required="true" Mask="false">true</Config>
+</Container>
