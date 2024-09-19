@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>wifiman</Name>
+  <Repository>ubnt/speedtest</Repository>
+  <Registry>https://registry.hub.docker.com/r/ubnt/speedtest/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview>Ubiquiti WiFiman server as a docker container, host your own wifiman.com speedtest server!&#xD;
+**Instructions:**&#xD;
+1. Login to https://console.wifiman.com/&#xD;
+2. Click Add Server&#xD;
+3. You will be given the Custom Installation Script command (a cURLcommand)&#xD;
+4. Before running that cURL command, remove the part from "&amp;amp;&amp;amp;" onwards&#xD;
+5. Run that cURL command and then run `cat /tmp/speed_inst.sh`&#xD;
+6. Read through the install script to figure out where your API Key is&#xD;
+7. Paste that into the API Key ENV var setting&#xD;
+8. Forward port 8050 (or whatever port you chose) for your publicly-routable address&#xD;
+9. Verify in WiFiman console that you are connected, and at this point should be awaiting approval&#xD;
+10. Enjoy!</Overview>
+  <Category/>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ed/77/70/ed77706b-bbe9-244f-f9fd-882be650ab95/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/540x540bb.jpg</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires>- Publicly Routable address&#xD;
+- More than or equal to 1gbps symmetric connection&#xD;
+- Router capable of port forwarding</Requires>
+  <Config Name="API Key" Target="API_KEY" Default="" Mode="" Description="MUST be provided - See description for instructions." Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Port" Target="8050" Default="8050" Mode="tcp" Description="You'll need to forward this port to be publicly-accessible" Type="Port" Display="always" Required="false" Mask="false">8050</Config>
+  <Config Name="Directory Server URL" Target="DIRECTORY_SERVER_URL" Default="wss://sp-dir.uwn.com/connect" Mode="" Description="Leave as default unless you know what you are doing" Type="Variable" Display="advanced" Required="true" Mask="false">wss://sp-dir.uwn.com/connect</Config>
+  <Config Name="com.centurylinklabs.watchtower.enable" Target="com.centurylinklabs.watchtower.enable" Default="false" Mode="" Description="Is v2tec/watchtower enabled?" Type="Label" Display="advanced" Required="true" Mask="false">false</Config>
+</Container>
